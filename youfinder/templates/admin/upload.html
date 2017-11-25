@@ -1,0 +1,71 @@
+<ion-content class="padding">
+
+    <!--UPLOAD--> 
+    <input type="file" id="upload" style="display: none">
+    <button id="btnupload" ng-click="fireUploadEvent()" class="button button-block button-balanced icon icon-left ion-android-happy" ng-if="visibleUploadContainer">Upload :)</button>
+    <progress id="progressupload" min="0" max="100" value="1" ng-if="visibleUploadContainer"></progress>
+    <!--UPLOAD--> 
+
+    <!--REMOVER UPLOAD--> 
+    <img src="{{downloadURL}}" ng-if="!visibleUploadContainer">
+    <button id="btnremove" ng-if="!visibleUploadContainer" class="button button-block button-assertive icon icon-left ion-trash-a" ng-click="removeFile(downloadURL)">REMOVER ARQUIVO</button>
+    <!--REMOVER UPLOAD--> 
+
+
+    <!--UPLOAD--> 
+    <input type="file" id="upload2" style="display: none">
+    <button id="btnupload" ng-click="fireUploadEvent('upload2')" class="button button-block button-balanced icon icon-left ion-android-happy" ng-if="visibleUploadContainer2">Upload 222</button>
+    <progress id="progressupload" min="0" max="100" value="1" ng-if="visibleUploadContainer2"></progress>
+    <!--UPLOAD--> 
+
+    <!--REMOVER UPLOAD--> 
+    <img src="{{downloadURL2}}" ng-if="!visibleUploadContainer2">
+    <button id="btnremove" ng-if="!visibleUploadContainer2" class="button button-block button-assertive icon icon-left ion-trash-a" ng-click="removeFile2(downloadURL2)">REMOVER ARQUIVO 222</button><!--
+     REMOVER UPLOAD -->
+
+    <div class="row"  style="flex-wrap: wrap" ng-if="isDesktop">
+        <div class="col col-33" ng-repeat="modelo in modelos">
+            <div class="list card" >
+
+                <div class="item item-avatar">
+                    <img src="../../img/coffee-cup.svg">
+                    <h2>Pretty Hate Machine</h2>
+                    <p>Nine Inch Nails</p>
+                </div>
+
+                <div class="item item-image">
+                    <img src="https://fthmb.tqn.com/6PDvfcVoAVh0Utm0IPE0NRdXMfM=/768x0/filters:no_upscale()/about/fitness-model-56ac07995f9b58b7d00a3462.jpg" width="100px" >
+                </div>
+
+                <a class="item item-icon-left assertive" href="#">
+                    <i class="icon ion-music-note"></i>
+                    Start listening
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row"  style="flex-wrap: wrap" ng-if="isMobile">
+        <div class="col col-90" ng-repeat="modelo in modelos">
+            <div class="list card" >
+
+                <div class="item item-avatar">
+                    <img src="../../img/coffee-cup.svg">
+                    <h2>Pretty Hate Machine</h2>
+                    <p>Nine Inch Nails</p>
+                </div>
+
+                <div class="item item-image">
+                    <img src="https://fthmb.tqn.com/6PDvfcVoAVh0Utm0IPE0NRdXMfM=/768x0/filters:no_upscale()/about/fitness-model-56ac07995f9b58b7d00a3462.jpg" width="100px" >
+                </div>
+
+                <a class="item item-icon-left assertive" href="#">
+                    <i class="icon ion-music-note"></i>
+                    Start listening
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+</ion-content>

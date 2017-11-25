@@ -1,0 +1,37 @@
+<ion-view view-title="Busca do Vale - Editar Cidade" name="edit-city-view" cache-view="false">
+    <ion-pane>
+        <ion-header-bar class="bar bar-header bar-balanced">
+            <button class="button icon ion-arrow-left-c button-clear" ng-click="goAdminListCities()"> </button>
+            <h1 class="title">Editar Cidade</h1>
+        </ion-header-bar>
+
+        <ion-content class="zima-applyFooter padding"> 
+
+            <label class="item item-input item-stacked-label">
+                <span class="input-label"><b>Nome</b></span>
+                <input type="text" ng-model="city.fullname" id="fullname">
+            </label>
+
+            <button class="button button-block button-icon ion-android-create" ng-click="openFormNeighborhood()">
+                Adicionar bairro
+            </button>
+
+            <ion-list>
+                <ion-item ng-repeat="neighborhood in neighborhoods | orderBy: ['fullname']" class="item-button-right item-text-wrap">
+                    {{neighborhood.fullname}}
+                    <button class="button button-balanced" ng-click="removeNeighborhood(neighborhood)">
+                        <i class="icon ion-trash-a"></i>
+                    </button>
+                </ion-item>
+            </ion-list>
+
+        </ion-content>
+
+        <ion-footer-bar class="tabs">
+            <button class="button button-block button-balanced icon-left ion-checkmark-round" ng-click="doClickSaveCity(city)">
+                SALVAR
+            </button>
+        </ion-footer-bar>
+
+    </ion-pane>
+</ion-view>

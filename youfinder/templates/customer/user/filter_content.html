@@ -1,0 +1,22 @@
+<ion-list class="customerByCategoryFilterList">
+    <div class="item item-divider">
+        <i class="icon {{iconMap}}"></i> BAIRROS
+    </div>
+    <div ng-repeat="neighborhood in neighborhoods" class="item item-checkbox" ng-click="checkNeighborhood(neighborhood)">
+        <label class="checkbox">
+            <input type="checkbox" value="{{neighborhood.$id}}" ng-model="neighborhood.selected">
+        </label>
+        {{neighborhood.fullname}}
+    </div>
+</ion-list>
+
+<ion-list>
+    <div class="item item-divider">
+        <i class="icon {{iconLocation}}"></i> GEOLOCALIZAÇÃO
+    </div>
+    <ion-checkbox class="item item-input" ng-change="checkCoords(searchgeo.value)" ng-model="searchgeo.value">Buscar comércios próximos</ion-checkbox>
+    <label class="item item-input item-stacked-label">
+        <span class="input-label">Distância em KM</span>
+        <input type="number" ng-disabled="!searchgeo.value" value="10" placeholder="Ex: 5" ng-model="distanceRange.value">
+    </label>
+</ion-list>

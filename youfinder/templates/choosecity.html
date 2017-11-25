@@ -1,0 +1,25 @@
+<ion-view view-title="YouFinder" name="choosecity-view" cache-view="false">
+
+    <ion-header-bar class="bar-balanced item-input-inset">
+        <h1 class="title">Em qual cidade você está?</h1>
+    </ion-header-bar>
+
+    <ion-content class="padding has-footer app-background-color" scroll="true">
+        <ion-list ng-repeat="city in cities">
+            <div class="item item-checkbox" ng-click="checkCity(city)">
+                <label class="checkbox">
+                    <input type="checkbox" value="{{city.$id}}" ng-model="city.selected">
+                </label>
+                {{city.fullname}}
+            </div>
+        </ion-list>
+        <div class="item item-text-wrap app-background-color">
+            <p class="font-italic">Em breve estaremos atendendo em mais cidades...</p>
+        </div>
+
+        <button class="button button-block button-outline button-balanced light-bg icon-left ion-ios-paperplane-outline waves-effect waves-button waves-light" ng-click="start()">COMEÇAR!</button>
+    </ion-content>
+
+    <div class="bar bar-footer bar-balanced">
+    </div>
+</ion-view>

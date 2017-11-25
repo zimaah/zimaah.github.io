@@ -1,0 +1,38 @@
+<ion-view view-title="YouFinder - Categorias" name="list-category-view" cache-view="false">
+
+    <ion-header-bar class="bar-balanced" title="Voltar">
+        <button class="button icon ion-arrow-left-c button-clear" ng-click="goHome()"></button>
+        <h1 class="title">Categorias</h1>
+        <button class="button icon ion-plus-circled button-clear" ng-click="abrirCadastroCategoria()"> </button>
+    </ion-header-bar>
+
+    <ion-content class="padding">
+
+        <div class="card" ng-repeat="category in categories">
+            <div class="row responsive-sm">
+
+                <!-- DIV LIST CUSTOMER -->
+                <div class="col col-90" ng-click="editarCadastroCategoria(category)">
+                    <a class="item item-thumbnail-left item-text-wrap">
+                        <img ng-src="{{category.iconURL}}" width="25px" height="25px" class="profile-picture">
+                        <h2>{{category.fullname}}</h2>
+                    </a>
+                </div>
+                <!-- DIV LIST CUSTOMER -->
+
+                <!-- BUTTON DELETE -->
+                <div class="col col-10">
+                    <button class="button button-assertive button-block" ng-click="removerCategoria(category.$id)">
+                        <i class="icon ion-ios-trash"></i>
+                    </button>
+                </div>
+                <!-- BUTTON DELETE -->
+            </div>
+            
+        </div>
+    </ion-content>
+
+    <div class="bar bar-footer bar-balanced">
+    </div>
+
+</ion-view>

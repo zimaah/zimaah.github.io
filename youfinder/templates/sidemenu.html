@@ -1,0 +1,81 @@
+﻿<ion-side-menus enable-menu-with-back-views="false" cache-view="false">
+
+    <!-- HEADER / MENU BUTTON -->
+    <ion-side-menu-content class="app-background-color">
+        
+        <ion-nav-bar class="bar-balanced">
+            <ion-nav-back-button class="no-text">
+            </ion-nav-back-button>
+            
+            <ion-nav-buttons side="left">
+                <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+            </ion-nav-buttons>
+            
+        </ion-nav-bar>
+
+        <ion-nav-view name="menuContent"></ion-nav-view>
+        
+    </ion-side-menu-content>
+    <!-- HEADER / MENU BUTTON -->
+
+    <!-- SIDE MENU -->
+    <ion-side-menu side="left" class="app-background-color">
+        <ion-header-bar class="expanded" ng-click="goPerfil()">
+            <img ion-img-cache ng-src="{{photoURL}}"  class="avatar motion spin fade">
+            <div class="menu-bottom zima-menu-bottom">
+                <h3 class="stable">{{user.fullname}} <i class="icon ion-edit stable"></i></h3>
+                <!--<h3 class="balanced">{{user.fullname}} <a class="button button-icon button-clear balanced icon ion-edit"></a></h3>-->
+            </div>
+        </ion-header-bar>
+        <ion-content class="stable-bg has-expanded-header app-background-color">
+            <ion-list>
+                <ion-item nav-clear menu-close href="#/login" ng-if="showLoginMenu()">
+                    Entrar
+                </ion-item>
+                
+                <!-- USER -->
+                <ion-item nav-clear menu-close href="#/app/home" ng-if="isUser">
+                    <i class="icon {{iconHome}}"></i> Home
+                </ion-item>
+                <ion-item nav-clear menu-close ui-sref="userprofile({user: userLogged})"  ng-if="isUser">
+                    <i class="icon {{iconPerson}}"></i> Meu Perfil
+                </ion-item>
+                <ion-item nav-clear menu-close href="#/pesquisar" ng-if="isUser">
+                    <i class="icon {{iconSearch}}"></i> Pesquisar
+                </ion-item>
+                <ion-item nav-clear menu-close href="#/favoritos" ng-if="isUser">
+                    <i class="icon {{iconFavorite}}"></i> Favoritos
+                </ion-item>
+                 <!-- USER -->
+                
+                <!-- CUSTOMER -->
+                <ion-item nav-clear menu-close href="#/app/home-comercio" ng-if="isCustomer">
+                    <i class="icon ion-android-home"></i> Home
+                </ion-item>
+                <ion-item nav-clear menu-close href="#/perfil-comercio/tab-one" ng-if="isCustomer">
+                    <i class="icon ion-android-people"></i> Meu Perfil
+                </ion-item>
+                <ion-item nav-clear menu-close href="#/pesquisar" ng-if="isCustomer">
+                    <i class="icon {{iconSearch}}"></i> Pesquisar
+                </ion-item>
+                <!-- CUSTOMER -->
+                
+                <ion-item nav-clear menu-close href="#/categorias">
+                    <i class="icon {{iconCategory}}"></i> Categorias
+                </ion-item>
+                
+                <!-- POR ENQUANTO É SÓ PARA NAVEGANTES - 25/07/2017 -->
+<!--                <ion-item nav-clear menu-close href="#/mudar-cidade" ng-if="showMenuUser()">
+                    Mudar Cidade
+                </ion-item>-->
+                <!-- POR ENQUANTO É SÓ PARA NAVEGANTES - 25/07/2017 -->
+                
+                <ion-item nav-clear menu-close ng-click="logout()" ng-if="!showLoginMenu()">
+                   <i class="icon {{iconLogout}}"></i> Sair
+                </ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-side-menu>
+    <!-- SIDE MENU -->
+
+</ion-side-menus>

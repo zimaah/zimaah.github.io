@@ -1,0 +1,46 @@
+<ion-view view-title="YouFinder - Editar Cliente" name="new-customer-view" cache-view="false">
+    <ion-pane>
+        <ion-header-bar class="bar bar-header bar-balanced">
+            <button class="button icon ion-arrow-left-c button-clear" ng-click="goAdminListCustomers()"> </button>
+            <h1 class="title">Editar Cliente</h1>
+            <button class="button icon ion-checkmark-round button-clear" ng-click="doClickSaveCustomer(customer)"> </button>
+        </ion-header-bar>
+        <ion-content class="padding zima-applyFooter has-footer">
+
+            <div class="list">
+
+                <!-- UPLOAD LOGO -->
+                <input type="file" id="uploadlogo" style="display: none">
+                <button id="btnuploadlogo" ng-click="fireUploadEvent('uploadlogo')" class="button button-block button-balanced item icon icon-left ion-paperclip" ng-if="visibleUploadLogoContainer">ENVIAR LOGO</button>
+                <progress id="progressupload" min="0" max="100" value="1" ng-if="visibleUploadLogoContainer"></progress>
+                <!-- UPLOAD LOGO -->
+
+                <!-- REMOVER LOGO -->
+                <div class="item">
+                    <img class="profile-picture" ng-src="{{downloadLogoURL}}" ng-if="!visibleUploadLogoContainer" width="80px" height="80px"/>
+                    <button id="btnremovelogo" ng-if="!visibleUploadLogoContainer" class="button button-block button-assertive icon icon-left ion-trash-a" ng-click="removeFileLogo(downloadLogoURL)">REMOVER LOGO</button>
+                </div>
+                <!-- REMOVER LOGO -->
+
+                <!-- UPLOAD FOTO DE CAPA -->
+                <input type="file" id="uploadcapa" style="display: none">
+                <button id="btnuploadcapa" ng-click="fireUploadEvent('uploadcapa')" class="button button-block button-balanced item icon icon-left ion-paperclip" ng-if="visibleUploadCapaContainer">ENVIAR FOTO DE CAPA</button>
+                <progress id="progressuploadcapa" min="0" max="100" value="1" ng-if="visibleUploadCapaContainer"></progress>
+                <!--UPLOAD  FOTO DE CAPA --> 
+
+                <!--REMOVER FOTO DE CAPA-->  
+                <div class="item item-image logo-gradiente">
+                    <img ng-src="{{downloadCapaURL}}" ng-if="!visibleUploadCapaContainer" class="zima-img-width-50 padding"/>
+                </div>
+
+                <div class="item">
+                    <button id="btnremovecapa" ng-if="!visibleUploadCapaContainer" class="button button-block button-assertive icon icon-left ion-trash-a" ng-click="removeFile(downloadCapaURL)">REMOVER FOTO DE CAPA</button>
+                </div>
+                <!--REMOVER FOTO DE CAPA-->  
+
+            </div>
+
+        </ion-content>
+
+    </ion-pane>
+</ion-view>

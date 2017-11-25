@@ -1,0 +1,53 @@
+<ion-view view-title="YouFinder - Editar Cliente" name="edit-customer-view" cache-view="false">
+    <ion-pane>
+        <ion-header-bar class="bar bar-header bar-balanced">
+            <button class="button icon ion-arrow-left-c button-clear" ng-click="goAdminListCustomers()"> </button>
+            <h1 class="title">Editar Cliente</h1>
+            <button class="button icon ion-checkmark-round button-clear" ng-click="doClickSaveCustomer(customer)"> </button>
+        </ion-header-bar>
+
+        <ion-content class="zima-applyFooter padding"> 
+
+            <ion-list ng-repeat="billingType in billingTypes">
+                <ion-item class="item-divider" ng-if="billingTypes[$index - 1].fullname != billingTypes[$index].fullname">
+                    <i class="icon ion-ios-paperplane-outline"></i> Plano: {{billingType.fullname}}
+                </ion-item>
+                <ion-checkbox class="item item-input" ng-change="" ng-model="customer.billingType.active">Ativo</ion-checkbox>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Início</span>
+                    <input type="date" ng-model="customer.billingType.start" ng-disabled="true">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Fim</span>
+                    <input type="date" ng-model="customer.billingType.end" ng-disabled="!customer.billingType.active">
+                </label>
+            </ion-list>
+
+            <div class="list">
+
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label"><b>Categoria</b></span>
+                    <select ng-model="customer.category" 
+                            ng-options="category.$id as category.fullname for category in categories"
+                            ng-change="onCategoryChange(customer.category)"
+                            ng-disabled="!customer.billingType.active">
+                    </select>
+                </label>
+
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label font-italic"><b>Subcategorias</b></span>
+                    <ion-list ng-repeat="sub in subCategories">
+                        <ion-checkbox class="item" ng-disabled="!customer.billingType.active && subCategories.length > 0" checklist-model="customer.billingType.subCategories" checklist-value="sub" checklist-comparator="compareCategory">{{sub.fullname}}</ion-checkbox>
+                        <!--<input type="checkbox" class="item item-input" checklist-model="customer.subCategories" checklist-value="sub" checklist-comparator="compareCategory"> {{sub.fullname}}-->
+                    </ion-list>
+                </label>
+
+
+            </div>
+        </ion-content>
+
+    </ion-pane>
+</ion-view>
+
+
+

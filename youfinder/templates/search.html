@@ -1,0 +1,21 @@
+<ion-view view-title="YouFinder" name="search-view" cache-view="false">
+
+    <ion-header-bar class="bar-balanced item-input-inset">
+        <button class="button icon {{iconBack}} button-clear" ng-click="goBack()"></button>
+        
+        <label class="item-input-wrapper">
+            <i class="icon ion-ios-search placeholder-icon"></i>
+            <input autofocus="" type="text" placeholder="Pesquisar todos..." ng-model="search" ng-model-options="{debounce: 300}">
+            <!--<span class="icon {{iconClose}} placeholder-icon" ng-click="clearSearch()" ng-if="search"></span>-->
+        </label>
+        
+        <button class="button icon {{iconOptions}} button-clear animated wobble" ng-click="openFilters()"></button>
+    </ion-header-bar>
+
+    <ion-content class="padding has-footer app-background-color" scroll="true">
+        <ng-include src="'templates/search_content.html'"></ng-include>
+    </ion-content>
+
+    <div class="bar bar-footer bar-balanced">
+    </div>
+</ion-view>

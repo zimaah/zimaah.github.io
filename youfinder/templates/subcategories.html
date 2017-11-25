@@ -1,0 +1,23 @@
+<ion-view view-title="YouFinder - {{categoryName}}" name="customersubcategories-view" cache-view="false">
+
+    <ion-header-bar class="bar-balanced item-input-inset">
+        <button class="button icon {{iconBack}} button-clear" ng-click="goBack()"></button>
+    <h1 class="title">{{categoryName}}</h1>
+</ion-header-bar>
+
+<ion-content class="padding has-footer app-background-color" scroll="true">
+    <ion-list class="categoriesList padding" ng-repeat="category in categories| orderBy: ['fullname']" 
+              ng-init="$last && effect()">
+
+        <a class="item item-avatar item-text-wrap waves-effect waves-button waves-dark in done" href="" ng-click="listCustomersByCategory(category)" style="transition-delay: 0.39s;">
+                <img ion-img-cache ng-src="{{category.iconURL}}" class="list-category-icon">
+                <h2>{{category.fullname}}</h2>
+                <p>{{category.texthelp}}</p>
+            </a>
+
+        </ion-list>
+    </ion-content>
+
+    <div class="bar bar-footer bar-balanced">
+    </div>
+</ion-view>

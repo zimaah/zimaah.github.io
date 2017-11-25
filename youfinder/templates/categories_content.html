@@ -1,0 +1,8 @@
+<ion-list class="categoriesList padding" ng-repeat="category in categories| orderBy: ['fullname']" 
+          ng-init="$last && effect()">
+    <a class="item item-avatar item-text-wrap" href="" ng-click="goToSubCategoryOrCustomers(category)" style="transition-delay: 0.39s;">
+        <img ion-img-cache ng-src="{{category.iconURL}}"  class="list-category-icon">
+        <h2>{{category.fullname}}</h2>
+        <p>{{category.texthelp}}</p>
+    </a>
+</ion-list>

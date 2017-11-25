@@ -1,0 +1,30 @@
+<div class="row" ng-show="customers.length == 0" class="categoryPerCityList">
+    <div class="col col-33 col-offset-33">
+        <img ng-src="img/search_256.png" width="80px" height="80px">
+    </div>
+</div>
+<h4 ng-show="customers.length == 0" class="text-center padding">
+    <p>Ops, nenhum resultado encontrado...</p>
+</h4>
+
+<!--<a class="item item-avatar item-icon-right" ng-repeat="friend in friends | filter: search as filtereds" ng-click="initChat(friend)" ng-init="$last && effect()">-->
+
+<ion-list class="customerByCategoryList"
+          ng-repeat="customer in customers | orderBy: ['distance', 'fullname'] | filter: search as filtereds" 
+          ng-init="$last && effect()"
+          delegate-handle="customerByCategoryList">
+    <ion-item class="item item-avatar item-text-wrap" href="" ng-click="showCustomerDetail(customer)" style="transition-delay: 0.39s;">
+        <img ion-img-cache ng-src="{{customer.logoURL}}" >
+        <h2>{{customer.fullname}}</h2>
+        <p> <i class="icon ion-location balanced"></i> {{customer.address}} ({{customer.addresscompl}}), número {{customer.number}}, bairro {{customer.neighborhood.value.fullname}}</p>
+        <p ng-if="customer.distance" class="font-italic font-bold">Distância {{customer.distance}}</p>
+
+        <!-- SWIPE BUTTONS -->
+        <ion-option-button ng-class="customer.isFavorite ? 'button button-icon icon {{favoriteOn}} assertive ': 'button button-icon icon {{favoriteOff}} assertive '" ng-click="doToggleFavorite(customer)"></ion-option-button>
+        <ion-option-button ng-if="isIconFacebook(customer.facebook)" class="button button-icon icon {{iconFacebook}} balanced" ng-click="iconFacebookClick(customer.facebook)"></ion-option-button>
+        <ion-option-button ng-if="isIconInstagram(customer.instragram)" class="button button-icon icon {{iconInstagram}} balanced" ng-click="iconInstagramClick(customer.instagram)"></ion-option-button>
+        <ion-option-button ng-if="isIconTwitter(customer.twitter)" class="button button-icon icon {{iconTwitter}} balanced" ng-click="iconTwitterClick(customer.twitter)"></ion-option-button>
+        <ion-option-button ng-if="isIconEmail(customer.emailone)" class="button button-icon icon {{iconEmail}} balanced" ng-click="iconEmailClick(customer.emailone)"></ion-option-button>
+    </ion-item>
+
+</ion-list>

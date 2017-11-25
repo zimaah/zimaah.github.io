@@ -1,0 +1,62 @@
+<ion-view class="perks-feed-view" hide-back-button="true" cache-view="false">
+
+    <ion-header-bar class="bar bar-header bar-balanced">
+        <button class="button icon ion-arrow-left-c button-clear" ng-click="goHome()"> </button>
+        <h1 class="title">Perfil</h1>
+    </ion-header-bar>
+
+    <!--    onloadstart="showProgressBar()"
+         onprogress="updateProgressBar(event)"
+         onloadend="hideProgressBar()"-->
+
+    <ion-content class="has-header" ion-img-cache>
+        <div class="hero has-mask" ion-img-cache-bg style="background-image: url('{{coverPhotoURL}}');">
+            <div class="content" ion-img-cache>
+                <div class="avatar" ion-img-cache-bg style="background-image: url('{{customer.logoURL}}');"></div>
+                <h3><a class="light">{{customer.fullname}}</a></h3>
+                <h4>{{customer.slogan}}</h4>
+            </div>
+        </div>
+
+        <h4 class="balanced content padding double-padding-x">Contatos e Redes Sociais</h4>
+        <ion-list class="customerProfileList">
+
+            <a ng-click="openEmail()" class="item" style="transition-delay: 0.39s;">
+                <i class="icon balanced ion-email"></i>  <b>E-mail:</b> {{customer.emailone}}
+            </a>
+            <a ng-if="isCelphone"
+               ng-href="tel:+55{{customer.celphone}}"
+               class="item" style="transition-delay: 0.39s;">
+                <i class="icon balanced ion-android-call "></i> <b>Telefone:</b> {{customer.celphone}} <span ng-if="isCelphoneWhats" class="text balanced">WhatsApp <i class="icon ion-social-whatsapp-outline"></i></span>
+            </a>
+            <a ng-if="isCelphone2"
+               ng-href="tel:+55{{customer.celphone2}}"
+               class="item item-text-wrap " style="transition-delay: 0.39s;">
+                <i class="icon balanced ion-android-call "></i> <b>Telefone:</b> {{customer.celphone2}} <span ng-if="isCelphone2Whats" class="text balanced">WhatsApp <i class="icon ion-social-whatsapp-outline"></i></span>
+            </a>
+            <a ng-if="isCelphone3"
+               ng-href="tel:+55{{customer.celphone3}}"
+               class="item item-text-wrap " style="transition-delay: 0.39s;">
+                <i class="icon balanced ion-android-call "></i> <b>Telefone:</b> {{customer.celphone3}} <span ng-if="isCelphone3Whats" class="text balanced">WhatsApp <i class="icon ion-social-whatsapp-outline"></i></span>
+            </a>
+            <a ng-if="isFacebook" ng-click="openFacebook()"
+               class="item waves-effect " style="transition-delay: 0.39s;">
+                <i class="icon balanced ion-social-facebook"></i> <b>Facebook:</b> @{{customer.facebook}}
+            </a>
+            <a ng-if="isInstagram" ng-click="openInstagram()"
+               class="item waves-effect " style="transition-delay: 0.39s;">
+                <i class="icon balanced ion-social-instagram-outline"></i> <b>Instagram:</b> @{{customer.instagram}}
+            </a>
+            <a ng-if="isTwitter" ng-click="openTwitter()"
+               class="item waves-effect " style="transition-delay: 0.39s;">
+                <i class="icon balanced ion-social-twitter"></i> <b>Twitter:</b> @{{customer.twitter}}
+            </a>
+
+            <!--            <a class="item item-avatar waves-effect waves-button waves-dark in done" style="transition-delay: 0.39s;">
+                            <span class="avatar" style="background-image: url('../img/girl.svg');"></span>
+                            <h2>Kobe Bryant</h2>
+                            <p>81 pts #toolongago</p>
+                        </a>-->
+        </ion-list>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,43 @@
+<ion-view name="login-view" class="perks-feed-view" hide-back-button="true">
+    <div class="bar bar-header bar-balanced" title="Voltar">
+        <h1 class="title">YouFinder</h1>
+    </div>
+
+    <ion-content class="app-background-color has-header has-footer padding login-background" ion-img-cache-bg>
+        <div class="ionic login">
+            <!--<img ng-src="img/logo-youfinder.jpeg" width="70%" height="150px" class="img-center">-->
+            <h2 class="text-center"></h2>
+
+            <!--            <div class="list">
+            
+                            <label class="item item-input item-md-label" placeholder="E-mail" highlight-color="balanced" type="text">
+                                <input type="text" placeholder="E-mail" ng-model="login.email" autofocus=""> 
+                                <div class="highlight highlight-balanced"></div>
+                            </label>
+            
+                            <label class="item item-input item-md-label" placeholder="Senha" highlight-color="balanced" type="password">
+                                <input type="password" placeholder="Senha" ng-model="login.password">
+                                <div class="highlight highlight-balanced"></div>
+                            </label>
+                        </div>-->
+
+            <!--<button class="button button-block button-balanced waves-effect waves-button waves-light" ng-click="doLogin(login)">Entrar</button>-->
+            <!--            <button class="button button-block button-balanced waves-effect waves-button waves-light" ng-click="createAccount()">Criar Conta</button>
+                        <button class="button button-block button-balanced waves-effect waves-button waves-light" ng-click="resetPasswordEmail()">Esqueci Minha Senha</button>-->
+            <!--            <div class="button-bar">
+                            <button class="button button-small button-outline button-balanced light-bg icon-left ion-social-facebook waves-effect waves-button waves-light" ng-click="doLoginWithFacebook()">Entrar com Facebook</button>
+                        </div>-->
+
+            <div class="buttons-home">
+                <button class="button button-block button-balanced waves-effect waves-button waves-light icon-left {{iconLogin}}" ng-click="goLoginForm()">Entrar</button>
+                <button class="button button-block button-balanced waves-effect waves-button waves-light icon-left {{iconCreateAccount}}" ng-click="createAccount()">Criar Conta</button>
+            </div>
+
+
+        </div>
+    </ion-content>
+
+    <ion-footer-bar class="bar-balanced">
+
+    </ion-footer-bar>
+</ion-view>

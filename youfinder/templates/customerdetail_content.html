@@ -1,0 +1,57 @@
+<div class="hero has-mask " style="background-image: url('{{customer.capaURL}}');">
+    <div class="content">
+        <div class="avatar" style="background-image: url('{{customer.logoURL}}');"></div>
+        <h3><a class="light">{{customer.fullname}}</a></h3>
+        <h5>{{customer.slogan}}</h5>
+    </div>
+</div>
+<div class="button-bar">
+    <button class="button button-dark waves-effect waves-button waves-classic"> Informações</button>
+    <!--    <button class="button button-dark waves-effect waves-button waves-classic icon ion-stats-bars"></button>
+        <button class="button button-dark waves-effect waves-button waves-classic icon ion-pizza"></button>-->
+</div>
+
+<!--<h4 class="balanced content padding double-padding-x">Following</h4>-->
+
+<div class="list animate-fade-slide-in-right center">
+    <a class="item item-avatar waves-effect waves-button waves-dark in done left-2px" style="transition-delay: 0.39s;">
+        <!--<span class="avatar left-2px" style="background-image: url('img/map-location.svg');"></span>-->
+        <p class="text-white-space"> <span class="font-bold">Endereço:</span> {{customer.address}} {{customer.number}} {{customer.addresscompl}} {{customer.neighborhood}}</p>
+        <p class="text-white-space"> <span class="font-bold">Cidade:</span> {{customer.city}} / {{customer.state ? customer.state : 'SC'}}</p>
+        <p><span class="font-bold">E-mail:</span> {{customer.emailone}}</p>
+        <p><span class="font-bold">E-mail:</span> {{customer.emailtwo}}</p>
+        <p><span class="font-bold">Telefone:</span>  {{customer.celphone}}</p>
+        <p><span class="font-bold">Telefone:</span>  {{customer.celphone2}}</p>
+        <p><span class="font-bold">Telefone:</span>  {{customer.celphone3}}</p>
+    </a>
+    <a class="item item-avatar waves-effect waves-button waves-dark in left-2px" style="transition-delay: 0.42s;">
+        <span class="button button-block button-balanced icon icon-left ion-social-facebook" ng-click="openFacebook(customer.facebook)">Facebook</span>
+        <span class="button button-block button-balanced icon icon-left ion-social-instagram">Instagram</span>
+        <span class="button button-block button-balanced icon icon-left ion-social-twitter">Twitter</span>
+        <span class="button button-block button-balanced icon icon-left ion-social-youtube">Youtube</span>
+        <span class="button button-block button-balanced icon icon-left ion-social-skype">Skype</span>
+        <span class="button button-block button-balanced icon icon-left ion-social-snapchat">Snapchat</span>
+    </a>
+</div>
+
+<!-- Nome Fantasia fullname -->
+<!-- Slogan -->
+<!-- Categoria -->
+<!-- Email principal emailone -->
+<!-- Email alternativo emailtwo -->
+<!-- Fale sobre seu negocio about -->
+
+<!-- Facebook -->
+<!-- Instagram -->
+<!-- Twitter -->
+<!-- celphone -->
+<!-- celphonewhats -->
+
+<!-- Endereço address -->
+<!-- numero number -->
+<!-- complemento addresscompl -->
+<!-- CEP zipcode -->
+<!-- Cidade city -->
+<!-- bairro neighborhood -->
+<!-- estado state -->
+<!-- país country -->

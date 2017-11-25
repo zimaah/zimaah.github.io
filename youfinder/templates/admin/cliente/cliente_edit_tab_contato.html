@@ -1,0 +1,108 @@
+<ion-view view-title="YouFinder - Editar Cliente" name="new-customer-view" cache-view="false" scrollable="true">
+    <ion-pane>
+        <ion-header-bar class="bar bar-header bar-balanced">
+            <button class="button icon ion-arrow-left-c button-clear" ng-click="goAdminListCustomers()"> </button>
+            <h1 class="title">Editar Cliente</h1>
+            <button class="button icon ion-checkmark-round button-clear" ng-click="doClickSaveCustomer(customer)"> </button>
+        </ion-header-bar>
+        <ion-content class="padding zima-applyFooter has-footer">
+
+            <div class="list">
+
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label"><b>Facebook</b></span>
+                    <input type="text" placeholder="www.fb.com/meuperfilfacebook" ng-model="customer.facebook" id="facebook" >
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label"><b>Instagram</b></span>
+                    <input type="text" placeholder="@meuinstagram" ng-model="customer.instagram" id="instagram" >
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label"><b>Twitter</b></span>
+                    <input type="text" placeholder="@meutwitter" ng-model="customer.twitter" id="twitter" >
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label"><b>Telefone</b></span>
+                    <input type="tel" placeholder="(47) 9-9999-9999" ng-model="customer.celphone" id="celphone" mask-restrict="reject" mask="(99) 9-9999-9999">
+                </label>
+                <ion-checkbox class="item item-input" ng-model="customer.celphonewhats">Esse telefone é Whatsapp?</ion-checkbox>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label"><b>Telefone 2</b></span>
+                    <input type="tel" placeholder="(47) 9-9999-9999" ng-model="customer.celphone2" id="celphone2" mask-restrict="reject" mask="(99) 9-9999-9999">
+                </label>
+                <ion-checkbox class="item item-input" ng-model="customer.celphone2whats">Esse telefone é Whatsapp?</ion-checkbox>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label"><b>Telefone 3</b></span>
+                    <input type="tel" placeholder="(47) 9-9999-9999" ng-model="customer.celphone3" id="celphone3" mask-restrict="reject" mask="(99) 9-9999-9999">
+                </label>
+                <ion-checkbox class="item item-input" ng-model="customer.celphone3whats">Esse telefone é Whatsapp?</ion-checkbox>
+
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label"><b>Endereço</b></span>
+                    <input type="text" placeholder="Rua/Av. das Flores" value="{{customer.address}}" ng-model="customer.address">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label"><b>Número</b></span>
+                    <input type="number" placeholder="33" value="{{customer.number}}" ng-model="customer.number">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label"><b>Complemento</b></span>
+                    <input type="text" placeholder="Edifício Schopenhauer, apto 704" value="{{customer.addresscompl}}" ng-model="customer.addresscompl">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label"><b>CEP</b></span>
+                    <input type="text" placeholder="88390000" ng-model="customer.zipcode" mask-restrict="reject" mask="99999-999">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label"><b>Estado</b></span>
+                    <input type="text" readonly="readonly" placeholder="Santa Catarina" value="SC" ng-model="customer.state">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label"><b>Cidade</b></span>
+                    <select ng-model="customer.city" ng-init="customer.city" 
+                            ng-options="city.$id as city.fullname for city in cities"
+                            ng-change="loadNeighborhoodByCity()"></select>
+                </label>
+                
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label"><b>Bairro</b></span>
+                    <select ng-model="customer.neighborhood"
+                            ng-options="neighborhood as neighborhood.fullname for neighborhood in neighborhoods">
+                    </select>
+                </label>
+
+                <!-- MAP -->                
+                <div class="" data-tap-disabled="true">
+                    <ng-map id="customermap_edit" class="map" zoom="{{zoom}}" center="[{{customer.latitude}}, {{customer.longitude}}]" zoom-control="true" scale-control="false" map-type-control="false" street-view-control="true" map-initialized="init(map)">
+                        <marker position="{{customer.latitude}},{{customer.longitude}}" title="YouFinder!"></marker>
+                    </ng-map>
+                </div>
+
+                <div class="row geolocation-row">
+                    <div class="col col-center">
+                        <button ng-disabled="customer.manualcoords" class="button button-block button-balanced icon-left ion-location" ng-click="getCurrentGeolocationCustomer()">
+                            Obter Minha Localização
+                        </button>
+                    </div>
+                </div>
+                
+                <ion-checkbox class="item item-input" ng-change="checkInfoCoords()" ng-model="customer.manualcoords">Informar Coordenadas</ion-checkbox>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label"><b>Latitude</b></span>
+                    <input type="text" placeholder="" ng-readonly="!customer.manualcoords" ng-model="customer.latitude">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label"><b>Longitude</b></span>
+                    <input type="text" placeholder="" ng-readonly="!customer.manualcoords" ng-model="customer.longitude">
+                </label>
+                <!-- MAP -->
+            </div>
+
+
+
+        </ion-content>
+
+    </ion-pane>
+</ion-view>
+
+

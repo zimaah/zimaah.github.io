@@ -1,0 +1,34 @@
+<ion-view name="create-account-view" class="perks-feed-view" hide-back-button="true">
+    
+    <ion-header-bar class="bar-balanced" title="Voltar">
+        <button class="button icon ion-arrow-left-c button-clear" ng-click="goLogin()"></button>
+        <h1 class="title">Criar Conta</h1>
+    </ion-header-bar>
+    
+    <ion-content class="app-background-color login-form-background">
+        <div class="ionic login">
+            <div class="list create-account-padding">
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label balanced font-bold">E-mail</span>
+                    <input type="text" placeholder="email@exemplo.com" ng-model="login.email" autofocus="">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label balanced font-bold">Senha</span>
+                    <input type="password" placeholder="*******" ng-model="login.password">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label balanced font-bold">Confirmar Senha</span>
+                    <input type="password" placeholder="Senha novamente" ng-model="login.password2">
+                </label>
+            </div>
+
+            <div class="padding">
+                <button class="button button-block button-balanced waves-effect waves-button waves-light icon-left {{iconCheckmark}}" ng-click="doCreateAccount(login)">Confirmar</button>
+            </div>
+        </div>
+    </ion-content>
+    
+    <ion-footer-bar class="bar-balanced">
+
+    </ion-footer-bar>
+</ion-view>

@@ -1,0 +1,14 @@
+<ion-view>
+
+    <ion-content>
+        <input type="file" id="uploadphoto" style="display: none">
+        <button id="btnupload" ng-click="fireUploadEvent('uploadphoto')" class="button button-balanced item icon icon-left ion-paperclip" ng-if="visibleUploadContainer">ENVIAR FOTO</button>
+
+        <div class="item">
+            <img class="profile-picture" ng-src="{{photoURL}}" ng-if="!visibleUploadContainer" width="80px" height="80px"/>
+            <button id="btnremove" ng-if="!visibleUploadContainer" class="button button-block button-assertive icon icon-left ion-trash-a" ng-click="removeFile(photoURL)">REMOVER FOTO</button>
+        </div>
+    </ion-content>
+
+
+</ion-view>
